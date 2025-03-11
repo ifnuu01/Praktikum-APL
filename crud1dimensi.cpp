@@ -56,7 +56,7 @@ int main()
                     cout << i + 1 << ". " << buah[i] << endl;
                 }
                 cout << "====================" << endl;
-                cout << "Pilih index data yang akan diubah: ";
+                cout << "Pilih nomer data yang akan diubah: ";
                 cin >> index;
                 cin.ignore();
 
@@ -64,6 +64,7 @@ int main()
                 if (index > 0 && index <= panjang_sekarang)
                 {
                     cout << "Masukkan buah baru: ";
+                    // mengambil input untuk mengubah data dari index yang dipilih dikurangi 1
                     getline(cin, buah[index - 1]);
                     system("clear || cls");
                     cout << "Data buah berhasil diedit" << endl;
@@ -87,7 +88,7 @@ int main()
                     cout << i + 1 << ". " << buah[i] << endl;
                 }
                 cout << "====================" << endl;
-                cout << "Pilih index data yang akan dihapus: ";
+                cout << "Pilih nomer data yang akan dihapus: ";
                 cin >> index;
                 cin.ignore();
                 system("clear || cls");
@@ -97,6 +98,7 @@ int main()
                 {
                     for (int i = index - 1; i < panjang_sekarang; i++)
                     {
+                        // Geser data ke index sebelumnya
                         buah[i] = buah[i + 1];
                     }
                     // Kurangi panjang array
@@ -117,6 +119,7 @@ int main()
             if (panjang_sekarang > 0)
             {
                 cout << "Data Buah" << endl;
+                // Melakukan perulangan berdasarkan panjang sekarang
                 for (int i = 0; i < panjang_sekarang; i++)
                 {
                     cout << i + 1 << ". " << buah[i] << endl;
