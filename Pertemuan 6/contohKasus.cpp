@@ -75,12 +75,44 @@ void hapusMahasiswa(Mahasiswa *data, int &jumlah, int index)
 void bubbleSort(Mahasiswa *data, const int &jumlah)
 {
     // Tulis Jawaban mu disini nnt dapat nilai plus
+    for (int i = 0; i < jumlah; i++)
+    {
+        for (int j = 0; j < (jumlah - i - 1); j++)
+        {
+            if (data[j].nama > data[j + 1].nama)
+            {
+                // Menukar elemen jika elemen sebelumnya lebih besar
+                string temp = data[j].nama;
+                data[j].nama = data[j + 1].nama;
+                data[j + 1].nama = temp;
+            }
+        }
+        // Menampilkan proses sorting pada setiap iterasi
+    }
 }
 
 // Selection Sort
 void selectionSort(Mahasiswa *data, const int &jumlah)
 {
     // Tulis Jawaban mu disini nnt dapat nilai plus
+    for (int i = 0; i < jumlah - 1; i++)
+    {
+        int min = i; // Anggap elemen ke-i adalah yang terkecil
+
+        // Cari elemen terkecil di sisa array (dari i+1 sampai akhir)
+        for (int j = i + 1; j < jumlah; j++)
+        {
+            if (data[j].nama < data[min].nama)
+            {
+                min = j; // Update indeks elemen terkecil
+            }
+        }
+
+        // Tukar elemen terkecil dengan elemen di posisi i
+        string temp = data[i].nama;
+        data[i].nama = data[min].nama;
+        data[min].nama = temp;
+    }
 }
 
 // Insertion Sort
@@ -138,7 +170,7 @@ int main()
             hapusMahasiswa(mahasiswa, jumlahData, index - 1);
             break;
         case 5:
-            // bubbleSort(mahasiswa, jumlahData);
+            bubbleSort(mahasiswa, jumlahData);
             // selectionSort(mahasiswa, jumlahData);
             // insertionSort(mahasiswa, jumlahData);
             break;
